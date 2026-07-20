@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { AuthLayout, Field } from "./login";
+import { AuthLayout, Field } from "@/components/site/AuthLayout";
 
 export const Route = createFileRoute("/signup")({
   component: SignupPage,

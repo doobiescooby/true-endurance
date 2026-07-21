@@ -111,13 +111,13 @@ function LandingPage() {
           />
           <FeatureCard
             icon={<Timer className="h-5 w-5" />}
-            title="Just 8 minutes a day"
+            title="Just 10 minutes a day"
             description="Short, guided sessions that respect your time and build a sustainable habit."
           />
           <FeatureCard
             icon={<Shield className="h-5 w-5" />}
             title="Fully private"
-            description="No social feed, no shared data. Your progress stays completely between you and Apex."
+            description="No social feed, no shared data. Your progress stays completely between you and StaminaRocket."
           />
         </div>
       </Section>

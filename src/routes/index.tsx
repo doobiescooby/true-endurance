@@ -3,22 +3,8 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { Section } from "@/components/site/Section";
 import { FeatureCard, TestimonialCard, PricingCard } from "@/components/site/Cards";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import {
-  Shield,
-  Brain,
-  Timer,
-  HeartPulse,
-  Waves,
-  LineChart,
-  ArrowRight,
-  Lock,
-} from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Shield, Brain, Timer, HeartPulse, Waves, LineChart, ArrowRight, Lock } from "lucide-react";
 import heroImage from "@/assets/hero.jpg";
 
 export const Route = createFileRoute("/")({
@@ -44,8 +30,8 @@ function LandingPage() {
               <span className="italic text-primary">Quietly earned.</span>
             </h1>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
-              A calm, science-based daily program that helps men naturally improve
-              premature ejaculation — no pills, no gimmicks, just proven training.
+              A calm, science-based daily program that helps men naturally improve premature ejaculation — no pills, no
+              gimmicks, just proven training.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link
@@ -107,9 +93,15 @@ function LandingPage() {
       {/* BENEFITS */}
       <Section
         id="benefits"
-        eyebrow="Why Apex"
-        title={<>Built on science.<br />Designed for real life.</>}
-        description="Every part of Apex is grounded in evidence-based techniques used by clinicians — delivered in short daily sessions that fit around you."
+        eyebrow="Why StaminaRocket"
+        title={
+          <>
+            Built on science.
+            <br />
+            Designed for real life.
+          </>
+        }
+        description="Every part of StaminaRocket is grounded in evidence-based techniques used by clinicians — delivered in short daily sessions that fit around you."
       >
         <div className="grid gap-5 md:grid-cols-3">
           <FeatureCard
@@ -166,27 +158,43 @@ function LandingPage() {
       </Section>
 
       {/* FEATURES */}
-      <Section
-        id="features"
-        eyebrow="What's inside"
-        title="A complete practice in your pocket"
-      >
+      <Section id="features" eyebrow="What's inside" title="A complete practice in your pocket">
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          <FeatureCard icon={<Waves className="h-5 w-5" />} title="Breath protocols" description="Guided box-breathing and coherence sessions that lower arousal spikes." />
-          <FeatureCard icon={<HeartPulse className="h-5 w-5" />} title="Pelvic-floor training" description="Progressive Kegel and reverse-Kegel work with real-time pacing." />
-          <FeatureCard icon={<Brain className="h-5 w-5" />} title="Awareness practice" description="Learn to recognize the point of no return — and stay in command." />
-          <FeatureCard icon={<LineChart className="h-5 w-5" />} title="Weekly reflections" description="Private check-ins that reveal quiet, compounding progress." />
-          <FeatureCard icon={<Timer className="h-5 w-5" />} title="Stamina intervals" description="Structured intervals that build endurance without pressure." />
-          <FeatureCard icon={<Shield className="h-5 w-5" />} title="Discreet by design" description="Neutral name, private notifications, and encrypted storage." />
+          <FeatureCard
+            icon={<Waves className="h-5 w-5" />}
+            title="Breath protocols"
+            description="Guided box-breathing and coherence sessions that lower arousal spikes."
+          />
+          <FeatureCard
+            icon={<HeartPulse className="h-5 w-5" />}
+            title="Pelvic-floor training"
+            description="Progressive Kegel and reverse-Kegel work with real-time pacing."
+          />
+          <FeatureCard
+            icon={<Brain className="h-5 w-5" />}
+            title="Awareness practice"
+            description="Learn to recognize the point of no return — and stay in command."
+          />
+          <FeatureCard
+            icon={<LineChart className="h-5 w-5" />}
+            title="Weekly reflections"
+            description="Private check-ins that reveal quiet, compounding progress."
+          />
+          <FeatureCard
+            icon={<Timer className="h-5 w-5" />}
+            title="Stamina intervals"
+            description="Structured intervals that build endurance without pressure."
+          />
+          <FeatureCard
+            icon={<Shield className="h-5 w-5" />}
+            title="Discreet by design"
+            description="Neutral name, private notifications, and encrypted storage."
+          />
         </div>
       </Section>
 
       {/* TESTIMONIALS */}
-      <Section
-        eyebrow="Real stories"
-        title="Quiet wins, meaningful change"
-        className="bg-secondary/40"
-      >
+      <Section eyebrow="Real stories" title="Quiet wins, meaningful change" className="bg-secondary/40">
         <div className="grid gap-5 md:grid-cols-3">
           <TestimonialCard
             quote="After a month I stopped dreading intimacy. It's the calmest thing I've ever added to my day."
@@ -255,12 +263,7 @@ function LandingPage() {
       </Section>
 
       {/* FAQ */}
-      <Section
-        id="faq"
-        eyebrow="Questions"
-        title="Frequently asked"
-        className="bg-secondary/40"
-      >
+      <Section id="faq" eyebrow="Questions" title="Frequently asked" className="bg-secondary/40">
         <div className="mx-auto max-w-3xl">
           <Accordion type="single" collapsible className="space-y-3">
             {[
@@ -306,13 +309,14 @@ function LandingPage() {
       <section className="py-20 md:py-28">
         <div className="container-page">
           <div className="relative overflow-hidden rounded-[2rem] bg-primary px-8 py-16 text-center text-primary-foreground shadow-elevated md:px-16 md:py-24">
-            <div className="absolute inset-0 opacity-20" style={{
-              background: "radial-gradient(ellipse at top, oklch(0.78 0.13 78) 0%, transparent 60%)",
-            }} />
+            <div
+              className="absolute inset-0 opacity-20"
+              style={{
+                background: "radial-gradient(ellipse at top, oklch(0.78 0.13 78) 0%, transparent 60%)",
+              }}
+            />
             <div className="relative">
-              <h2 className="mx-auto max-w-2xl text-4xl md:text-5xl">
-                A calmer, more confident you — starts tonight.
-              </h2>
+              <h2 className="mx-auto max-w-2xl text-4xl md:text-5xl">A calmer, more confident you — starts tonight.</h2>
               <p className="mx-auto mt-5 max-w-xl text-primary-foreground/80">
                 Join 12,000+ men quietly transforming their control, confidence, and connection.
               </p>
@@ -323,9 +327,7 @@ function LandingPage() {
                 Start your free week
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <p className="mt-4 text-xs text-primary-foreground/70">
-                No credit card required · Fully private
-              </p>
+              <p className="mt-4 text-xs text-primary-foreground/70">No credit card required · Fully private</p>
             </div>
           </div>
         </div>

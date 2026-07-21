@@ -48,6 +48,7 @@ function LandingPage() {
                 How it works
               </a>
             </div>
+          </div>
 
           <div className="fade-in relative">
             <div className="relative overflow-hidden rounded-[2rem] shadow-elevated">

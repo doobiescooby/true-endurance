@@ -139,7 +139,7 @@ function LandingPage() {
             },
             {
               n: "02",
-              t: "Daily 8-minute sessions",
+              t: "Daily 10-minute sessions",
               d: "Guided breath, pelvic-floor, and mindfulness practices delivered in a calm audio-first format.",
             },
             {

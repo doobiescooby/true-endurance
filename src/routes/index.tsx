@@ -82,7 +82,7 @@ function LandingPage() {
                 </div>
                 <div>
                   <div className="text-xs text-muted-foreground">Today's session</div>
-                  <div className="font-serif text-lg">8 minutes</div>
+                  <div className="font-serif text-lg">10 minutes</div>
                 </div>
               </div>
             </div>
@@ -145,7 +145,7 @@ function LandingPage() {
             {
               n: "03",
               t: "Track quiet progress",
-              d: "Weekly reflections show your gains in control, confidence, and calm — measured discreetly.",
+              d: "Log each session to track your control, identify triggers, and discover what techniques work best for you.",
             },
           ].map((s) => (
             <div key={s.n} className="rounded-2xl border border-border bg-card p-8 shadow-soft">
@@ -276,7 +276,7 @@ function LandingPage() {
               },
               {
                 q: "Do I need any equipment?",
-                a: "None. Just headphones and a quiet 10 minutes a day.",
+                a: "You can practice on your own or with your partner. Begin with your hand and lubricant, then move on to a sex toy as you become more confident and in control.",
               },
               {
                 q: "Can I cancel anytime?",

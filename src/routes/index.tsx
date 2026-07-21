@@ -48,21 +48,6 @@ function LandingPage() {
                 How it works
               </a>
             </div>
-            <dl className="mt-10 grid max-w-md grid-cols-3 gap-6 border-t border-border pt-8">
-              <div>
-                <dt className="text-xs uppercase tracking-wider text-muted-foreground">Users</dt>
-                <dd className="mt-1 font-serif text-2xl">12k+</dd>
-              </div>
-              <div>
-                <dt className="text-xs uppercase tracking-wider text-muted-foreground">Avg gain</dt>
-                <dd className="mt-1 font-serif text-2xl">3.4×</dd>
-              </div>
-              <div>
-                <dt className="text-xs uppercase tracking-wider text-muted-foreground">Rating</dt>
-                <dd className="mt-1 font-serif text-2xl">4.9</dd>
-              </div>
-            </dl>
-          </div>
 
           <div className="fade-in relative">
             <div className="relative overflow-hidden rounded-[2rem] shadow-elevated">

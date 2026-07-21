@@ -163,22 +163,22 @@ function LandingPage() {
           <FeatureCard
             icon={<Waves className="h-5 w-5" />}
             title="Breath protocols"
-            description="Guided box-breathing and coherence sessions that lower arousal spikes."
+            description="Guided breathing sessions that lower arousal spikes."
           />
           <FeatureCard
             icon={<HeartPulse className="h-5 w-5" />}
             title="Pelvic-floor training"
-            description="Progressive Kegel and reverse-Kegel work with real-time pacing."
+            description="Progressive Kegel and Reverse-Kegel work with real-time pacing."
           />
           <FeatureCard
             icon={<Brain className="h-5 w-5" />}
             title="Awareness practice"
-            description="Learn to recognize the point of no return — and stay in command."
+            description="Learn to recognize the point of no return and stay in command."
           />
           <FeatureCard
             icon={<LineChart className="h-5 w-5" />}
-            title="Weekly reflections"
-            description="Private check-ins that reveal quiet, compounding progress."
+            title="Daily reflections"
+            description="Log each session to track your control, identify triggers, and discover what techniques work best for you."
           />
           <FeatureCard
             icon={<Timer className="h-5 w-5" />}
@@ -199,17 +199,17 @@ function LandingPage() {
           <TestimonialCard
             quote="After a month I stopped dreading intimacy. It's the calmest thing I've ever added to my day."
             name="Marcus, 34"
-            meta="8 weeks with Apex"
+            meta="8 weeks with StaminaRocket"
           />
           <TestimonialCard
-            quote="No pills, no pressure — just short sessions I actually stick to. My confidence has completely shifted."
+            quote="No pills, no pressure. Just short sessions I actually stick to. My confidence has completely shifted."
             name="Jordan, 29"
-            meta="12 weeks with Apex"
+            meta="12 weeks with StaminaRocket"
           />
           <TestimonialCard
-            quote="The privacy matters. It never feels like an app about a problem — it feels like a practice."
+            quote="The privacy matters. It never feels like an app about a problem. It feels like a practice."
             name="D., 41"
-            meta="6 months with Apex"
+            meta="6 months with StaminaRocket"
           />
         </div>
       </Section>
@@ -228,7 +228,7 @@ function LandingPage() {
             price="$19"
             period="/ month"
             description="Full access, month to month."
-            features={["Daily 8-minute sessions", "Full training library", "Progress tracking", "Cancel anytime"]}
+            features={["Daily 10-minute sessions", "Full training library", "Progress tracking", "Cancel anytime"]}
             cta={
               <Link
                 to="/signup"
@@ -244,12 +244,7 @@ function LandingPage() {
             price="$129"
             period="/ year"
             description="Best value — 45% off."
-            features={[
-              "Everything in Monthly",
-              "Advanced protocols",
-              "Weekly private reflections",
-              "Priority coaching Q&A",
-            ]}
+            features={["Everything in Monthly", "Advanced protocols", "Weekly private reflections"]}
             cta={
               <Link
                 to="/signup"
@@ -268,24 +263,24 @@ function LandingPage() {
           <Accordion type="single" collapsible className="space-y-3">
             {[
               {
-                q: "Is Apex a medical treatment?",
-                a: "No. Apex is an educational and training program based on techniques widely used by clinicians and therapists. It is not a substitute for medical care — if you have concerns, always consult a professional.",
+                q: "Is StaminaRocket a medical treatment?",
+                a: "No. StaminaRocket is an educational and training program based on techniques widely used by clinicians and therapists. It is not a substitute for medical care. If you have concerns, always consult a professional.",
               },
               {
                 q: "How long until I see results?",
-                a: "Most members notice meaningful changes within 3–4 weeks of consistent daily practice. Lasting change typically compounds over 8–12 weeks.",
+                a: "Most members notice meaningful changes within 4-8 weeks of consistent daily practice. Lasting change typically compounds over 8–12 weeks.",
               },
               {
                 q: "How private is it?",
-                a: "Very. Notifications are neutral, your data is encrypted, and nothing is ever shared. Apex is designed to feel like a private practice, not a public app.",
+                a: "Very. Notifications are neutral, your data is encrypted, and nothing is ever shared. StaminaRocket is designed to feel like a private practice, not a public app.",
               },
               {
                 q: "Do I need any equipment?",
-                a: "None. Just headphones and a quiet 8 minutes a day.",
+                a: "None. Just headphones and a quiet 10 minutes a day.",
               },
               {
                 q: "Can I cancel anytime?",
-                a: "Yes — cancel in one tap from Settings. Every plan also includes a 30-day money-back guarantee.",
+                a: "Yes. Cancel in one tap from Settings. Every plan also includes a 30-day money-back guarantee.",
               },
             ].map((item, i) => (
               <AccordionItem
@@ -316,7 +311,7 @@ function LandingPage() {
               }}
             />
             <div className="relative">
-              <h2 className="mx-auto max-w-2xl text-4xl md:text-5xl">A calmer, more confident you — starts tonight.</h2>
+              <h2 className="mx-auto max-w-2xl text-4xl md:text-5xl">A calmer, more confident you starts today.</h2>
               <p className="mx-auto mt-5 max-w-xl text-primary-foreground/80">
                 Join 12,000+ men quietly transforming their control, confidence, and connection.
               </p>

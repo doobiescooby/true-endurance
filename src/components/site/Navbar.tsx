@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import logoAsset from "@/assets/Stamina_Rocket_Brand_Logo-3.png.asset.json";
 
 const links = [
   { href: "#benefits", label: "Benefits" },

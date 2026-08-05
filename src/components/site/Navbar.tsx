@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/Stamina Rocket Brand Logo-4.png";
+import logo from "@/assets/Copy of Stamina Rocket Brand Logo 2.svg";
+
 
 const links = [
   { href: "#benefits", label: "Benefits" },
@@ -31,13 +32,16 @@ export function Navbar() {
       }`}
     >
       <div className="container-page flex h-16 items-center justify-between md:h-20">
-        <Link to="/" className="flex items-center">
-          <img
-            src={logo}
-            alt="Stamina Rocket"
-            className="h-10 w-auto"
-          />
-        </Link>
+  <Link to="/" className="flex items-center gap-2">
+  <img
+    src={logo}
+    alt="Stamina Rocket"
+    className="h-16 w-auto"
+  />
+  <span className="text-2xl font-bold text-[#241614]">
+    Stamina Rocket
+  </span>
+</Link>
 
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((l) => (

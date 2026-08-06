@@ -24,15 +24,21 @@ export function TestimonialCard({
   quote,
   name,
   meta,
+  rating = 5,
 }: {
   quote: string;
   name: string;
   meta: string;
+  rating?: number;
 }) {
   return (
     <figure className="hover-lift flex h-full flex-col rounded-2xl border border-border bg-card p-7 shadow-soft">
-      <div className="mb-4 text-gold" aria-hidden>
-        ★★★★★
+      <div className="mb-4 flex gap-0.5" aria-label={`Rated ${rating} out of 5`} role="img">
+        {[1, 2, 3, 4, 5].map((i) => (
+          <span key={i} aria-hidden className={i <= rating ? "text-gold" : "text-muted-foreground/30"}>
+            ★
+          </span>
+        ))}
       </div>
       <blockquote className="flex-1 font-serif text-lg leading-relaxed text-foreground">
         “{quote}”
@@ -44,6 +50,7 @@ export function TestimonialCard({
     </figure>
   );
 }
+
 
 export function PricingCard({
   name,

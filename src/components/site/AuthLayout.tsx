@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import logo from "@/assets/Copy of Stamina Rocket Brand Logo 2.svg";
 
 export function AuthLayout({
   title,
@@ -17,9 +18,9 @@ export function AuthLayout({
       <div className="hidden bg-primary text-primary-foreground md:flex md:flex-col md:justify-between md:p-12">
         <Link to="/" className="flex items-center gap-2">
           <span className="grid h-8 w-8 place-items-center rounded-full bg-gold text-gold-foreground">
-            <span className="font-serif text-sm">A</span>
+            <img src={logo} alt="Stamina Rocket" className="h-6 w-6 object-contain" />
           </span>
-          <span className="font-serif text-lg">Apex</span>
+          <span className="font-serif text-lg">Stamina Rocket</span>
         </Link>
         <div className="max-w-md">
           <p className="font-serif text-3xl leading-snug">
@@ -35,10 +36,10 @@ export function AuthLayout({
       <div className="flex flex-col justify-center px-6 py-12 md:px-16">
         <div className="mx-auto w-full max-w-sm">
           <Link to="/" className="mb-8 flex items-center gap-2 md:hidden">
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
-              <span className="font-serif text-sm">A</span>
+            <span className="grid h-8 w-8 place-items-center rounded-full">
+              <img src={logo} alt="Stamina Rocket" className="h-8 w-8 object-contain" />
             </span>
-            <span className="font-serif text-lg">Apex</span>
+            <span className="font-serif text-lg">Stamina Rocket</span>
           </Link>
           <h1 className="text-3xl md:text-4xl">{title}</h1>
           <p className="mt-2 text-sm text-muted-foreground">{subtitle}</p>

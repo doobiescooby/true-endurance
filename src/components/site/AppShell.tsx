@@ -1,6 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { LayoutDashboard, Dumbbell, LineChart, Settings, LogOut } from "lucide-react";
+import logo from "@/assets/Copy of Stamina Rocket Brand Logo 2.svg";
 
 const nav = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -17,10 +18,10 @@ export function AppShell({ children }: { children: ReactNode }) {
       <div className="flex">
         <aside className="sticky top-0 hidden h-screen w-64 shrink-0 border-r border-border bg-secondary/30 md:flex md:flex-col">
           <Link to="/dashboard" className="flex items-center gap-2 px-6 py-6">
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
-              <span className="font-serif text-sm">A</span>
+            <span className="grid h-8 w-8 place-items-center rounded-full">
+              <img src={logo} alt="Stamina Rocket" className="h-8 w-8 object-contain" />
             </span>
-            <span className="font-serif text-lg">Apex</span>
+            <span className="font-serif text-lg">Stamina Rocket</span>
           </Link>
           <nav className="flex-1 space-y-1 px-3 py-4">
             {nav.map((item) => {
@@ -57,10 +58,10 @@ export function AppShell({ children }: { children: ReactNode }) {
           {/* mobile top bar */}
           <div className="flex items-center justify-between border-b border-border bg-background/80 px-5 py-4 backdrop-blur md:hidden">
             <Link to="/dashboard" className="flex items-center gap-2">
-              <span className="grid h-7 w-7 place-items-center rounded-full bg-primary text-primary-foreground">
-                <span className="font-serif text-xs">A</span>
+              <span className="grid h-7 w-7 place-items-center rounded-full">
+                <img src={logo} alt="Stamina Rocket" className="h-7 w-7 object-contain" />
               </span>
-              <span className="font-serif">Apex</span>
+              <span className="font-serif">Stamina Rocket</span>
             </Link>
             <Link to="/settings" className="rounded-full border border-border p-2">
               <Settings className="h-4 w-4" />

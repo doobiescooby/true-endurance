@@ -3,7 +3,7 @@ import { AppShell } from "@/components/site/AppShell";
 
 export const Route = createFileRoute("/progress")({
   component: ProgressPage,
-  head: () => ({ meta: [{ title: "Progress · Apex" }] }),
+  head: () => ({ meta: [{ title: "Progress · Stamina Rocket" }] }),
 });
 
 const weeks = [

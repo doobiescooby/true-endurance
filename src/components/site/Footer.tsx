@@ -36,7 +36,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-12 flex flex-col justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row">
-          <p>© {new Date().getFullYear()} Apex Wellness. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Stamina Rocket. All rights reserved.</p>
           <p>Educational program. Not a substitute for medical advice.</p>
         </div>
       </div>

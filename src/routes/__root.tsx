@@ -75,13 +75,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Apex — Natural training for lasting control" },
+      { title: "Stamina Rocket — Natural training for lasting control" },
       {
         name: "description",
         content:
-          "Apex is a private, evidence-based daily training program that helps men naturally improve control and confidence in the bedroom.",
+          "Stamina Rocket is a private, evidence-based daily training program that helps men naturally improve control and confidence in the bedroom.",
       },
-      { property: "og:title", content: "Apex — Natural training for lasting control" },
+      { property: "og:title", content: "Stamina Rocket — Natural training for lasting control" },
       {
         property: "og:description",
         content:

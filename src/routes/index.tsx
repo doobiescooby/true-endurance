@@ -4,6 +4,15 @@ import { Footer } from "@/components/site/Footer";
 import { Section } from "@/components/site/Section";
 import { FeatureCard, TestimonialCard, PricingCard } from "@/components/site/Cards";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { testimonials } from "@/data/testimonials";
+
 import { Shield, Brain, Timer, HeartPulse, Waves, LineChart, ArrowRight, Lock } from "lucide-react";
 import heroImage from "@/assets/hero.jpg";
 

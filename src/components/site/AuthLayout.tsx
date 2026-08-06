@@ -18,7 +18,7 @@ export function AuthLayout({
       <div className="hidden bg-primary text-primary-foreground md:flex md:flex-col md:justify-between md:p-12">
         <Link to="/" className="flex items-center gap-2">
           <span className="grid h-8 w-8 place-items-center rounded-full bg-gold text-gold-foreground">
-            <span className="font-serif text-sm">A</span>
+            <img src={logo} alt="Stamina Rocket" className="h-6 w-6 object-contain" />
           </span>
           <span className="font-serif text-lg">Stamina Rocket</span>
         </Link>

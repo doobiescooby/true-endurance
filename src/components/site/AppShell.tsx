@@ -17,8 +17,8 @@ export function AppShell({ children }: { children: ReactNode }) {
       <div className="flex">
         <aside className="sticky top-0 hidden h-screen w-64 shrink-0 border-r border-border bg-secondary/30 md:flex md:flex-col">
           <Link to="/dashboard" className="flex items-center gap-2 px-6 py-6">
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
-              <span className="font-serif text-sm">A</span>
+            <span className="grid h-8 w-8 place-items-center rounded-full">
+              <img src={logo} alt="Stamina Rocket" className="h-8 w-8 object-contain" />
             </span>
             <span className="font-serif text-lg">Stamina Rocket</span>
           </Link>

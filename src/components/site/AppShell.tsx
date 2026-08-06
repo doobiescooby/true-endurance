@@ -58,8 +58,8 @@ export function AppShell({ children }: { children: ReactNode }) {
           {/* mobile top bar */}
           <div className="flex items-center justify-between border-b border-border bg-background/80 px-5 py-4 backdrop-blur md:hidden">
             <Link to="/dashboard" className="flex items-center gap-2">
-              <span className="grid h-7 w-7 place-items-center rounded-full bg-primary text-primary-foreground">
-                <span className="font-serif text-xs">A</span>
+              <span className="grid h-7 w-7 place-items-center rounded-full">
+                <img src={logo} alt="Stamina Rocket" className="h-7 w-7 object-contain" />
               </span>
               <span className="font-serif">Stamina Rocket</span>
             </Link>

@@ -7,10 +7,9 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2">
-              <span className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
-                <span className="font-serif text-sm">A</span>
-              </span>
-              <span className="font-serif text-lg">Apex</span>
+          <span className="text-lg font-bold text-[#241614] sm:text-xl lg:text-2xl">
+            Stamina Rocket
+          </span>
             </div>
             <p className="mt-4 max-w-sm text-sm text-muted-foreground">
               A calm, science-based daily program helping men build lasting control,

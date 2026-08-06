@@ -31,19 +31,19 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="container-page flex h-16 items-center justify-between md:h-20">
-        <Link to="/" className="flex items-center gap-2 sm:gap-2.5 md:gap-3">
+      <div className="container-page flex h-16 items-center justify-between lg:h-20">
+        <Link to="/" className="flex items-center gap-2 sm:gap-2.5 lg:gap-3">
           <img
             src={logo}
             alt="Stamina Rocket"
-            className="h-10 w-auto sm:h-12 md:h-16"
+            className="h-10 w-auto sm:h-12 lg:h-16"
           />
-          <span className="text-lg font-bold text-[#241614] sm:text-xl md:text-2xl">
+          <span className="text-lg font-bold text-[#241614] sm:text-xl lg:text-2xl">
             Stamina Rocket
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
           {links.map((l) => (
             <a
               key={l.href}
@@ -55,7 +55,7 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden items-center gap-2 lg:flex">
           <Link
             to="/login"
             className="rounded-full px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground"
@@ -71,7 +71,7 @@ export function Navbar() {
         </div>
 
         <button
-          className="grid h-10 w-10 place-items-center rounded-full border border-border md:hidden"
+          className="grid h-10 w-10 place-items-center rounded-full border border-border lg:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -80,7 +80,7 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="border-t border-border bg-background md:hidden">
+        <div className="border-t border-border bg-background lg:hidden">
           <div className="container-page flex flex-col gap-1 py-4">
             {links.map((l) => (
               <a

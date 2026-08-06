@@ -12,7 +12,7 @@ const steps = [
 
 export const Route = createFileRoute("/training")({
   component: Training,
-  head: () => ({ meta: [{ title: "Today's session · Apex" }] }),
+  head: () => ({ meta: [{ title: "Today's session · Stamina Rocket" }] }),
 });
 
 function Training() {

@@ -19,7 +19,7 @@ export function AuthLayout({
           <span className="grid h-8 w-8 place-items-center rounded-full bg-gold text-gold-foreground">
             <span className="font-serif text-sm">A</span>
           </span>
-          <span className="font-serif text-lg">Apex</span>
+          <span className="font-serif text-lg">Stamina Rocket</span>
         </Link>
         <div className="max-w-md">
           <p className="font-serif text-3xl leading-snug">
@@ -38,7 +38,7 @@ export function AuthLayout({
             <span className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
               <span className="font-serif text-sm">A</span>
             </span>
-            <span className="font-serif text-lg">Apex</span>
+            <span className="font-serif text-lg">Stamina Rocket</span>
           </Link>
           <h1 className="text-3xl md:text-4xl">{title}</h1>
           <p className="mt-2 text-sm text-muted-foreground">{subtitle}</p>

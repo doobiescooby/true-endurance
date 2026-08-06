@@ -4,7 +4,7 @@ import { Flame, Clock, TrendingUp, Play } from "lucide-react";
 
 export const Route = createFileRoute("/dashboard")({
   component: Dashboard,
-  head: () => ({ meta: [{ title: "Dashboard · Apex" }] }),
+  head: () => ({ meta: [{ title: "Dashboard · Stamina Rocket" }] }),
 });
 
 function Dashboard() {

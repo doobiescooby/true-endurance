@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export const Route = createFileRoute("/settings")({
   component: SettingsPage,
-  head: () => ({ meta: [{ title: "Settings · Apex" }] }),
+  head: () => ({ meta: [{ title: "Settings · Stamina Rocket" }] }),
 });
 
 function Toggle({ label, description, defaultOn }: { label: string; description: string; defaultOn?: boolean }) {
@@ -68,9 +68,9 @@ function SettingsPage() {
         <section className="rounded-2xl border border-border bg-card p-6 shadow-soft md:col-span-2 md:p-8">
           <h2 className="font-serif text-xl">Privacy</h2>
           <div className="mt-3">
-            <Toggle label="Neutral notifications" description="Reminders never mention Apex by name." defaultOn />
+            <Toggle label="Neutral notifications" description="Reminders never mention Stamina Rocket by name." defaultOn />
             <Toggle label="App lock" description="Require Face ID / passcode to open the app." defaultOn />
-            <Toggle label="Analytics" description="Share anonymized usage to help improve Apex." />
+            <Toggle label="Analytics" description="Share anonymized usage to help improve Stamina Rocket." />
           </div>
         </section>
 

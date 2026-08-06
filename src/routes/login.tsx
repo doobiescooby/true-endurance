@@ -6,8 +6,8 @@ export const Route = createFileRoute("/login")({
   component: LoginPage,
   head: () => ({
     meta: [
-      { title: "Log in · Apex" },
-      { name: "description", content: "Log in to your Apex training program." },
+      { title: "Log in · Stamina Rocket" },
+      { name: "description", content: "Log in to your Stamina Rocket training program." },
     ],
   }),
 });
@@ -22,7 +22,7 @@ function LoginPage() {
       subtitle="Sign in to continue your practice."
       footer={
         <>
-          New to Apex?{" "}
+          New to Stamina Rocket?{" "}
           <Link to="/signup" className="font-medium text-primary hover:underline">
             Create an account
           </Link>

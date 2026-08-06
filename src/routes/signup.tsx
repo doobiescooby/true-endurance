@@ -6,8 +6,8 @@ export const Route = createFileRoute("/signup")({
   component: SignupPage,
   head: () => ({
     meta: [
-      { title: "Create account · Apex" },
-      { name: "description", content: "Start your free week of Apex training." },
+      { title: "Create account · Stamina Rocket" },
+      { name: "description", content: "Start your free week of Stamina Rocket training." },
     ],
   }),
 });

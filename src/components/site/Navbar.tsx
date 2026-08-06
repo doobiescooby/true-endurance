@@ -32,16 +32,16 @@ export function Navbar() {
       }`}
     >
       <div className="container-page flex h-16 items-center justify-between md:h-20">
-  <Link to="/" className="flex items-center gap-2">
-  <img
-    src={logo}
-    alt="Stamina Rocket"
-    className="h-16 w-auto"
-  />
-  <span className="text-2xl font-bold text-[#241614]">
-    Stamina Rocket
-  </span>
-</Link>
+        <Link to="/" className="flex items-center gap-2 sm:gap-2.5 md:gap-3">
+          <img
+            src={logo}
+            alt="Stamina Rocket"
+            className="h-10 w-auto sm:h-12 md:h-16"
+          />
+          <span className="text-lg font-bold text-[#241614] sm:text-xl md:text-2xl">
+            Stamina Rocket
+          </span>
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((l) => (

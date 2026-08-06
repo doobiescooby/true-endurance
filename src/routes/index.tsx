@@ -4,6 +4,15 @@ import { Footer } from "@/components/site/Footer";
 import { Section } from "@/components/site/Section";
 import { FeatureCard, TestimonialCard, PricingCard } from "@/components/site/Cards";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { testimonials } from "@/data/testimonials";
+
 import { Shield, Brain, Timer, HeartPulse, Waves, LineChart, ArrowRight, Lock } from "lucide-react";
 import heroImage from "@/assets/hero.jpg";
 
@@ -181,24 +190,21 @@ function LandingPage() {
 
       {/* TESTIMONIALS */}
       <Section eyebrow="Real stories" title="Quiet wins, meaningful change" className="bg-secondary/40">
-        <div className="grid gap-5 md:grid-cols-3">
-          <TestimonialCard
-            quote="After a month I stopped dreading intimacy. It's the calmest thing I've ever added to my day."
-            name="Marcus, 34"
-            meta="8 weeks with StaminaRocket"
-          />
-          <TestimonialCard
-            quote="No pills, no pressure. Just short sessions I actually stick to. My confidence has completely shifted."
-            name="Jordan, 29"
-            meta="12 weeks with StaminaRocket"
-          />
-          <TestimonialCard
-            quote="The privacy matters. It never feels like an app about a problem. It feels like a practice."
-            name="D., 41"
-            meta="6 months with StaminaRocket"
-          />
-        </div>
+        <Carousel opts={{ align: "start", loop: true }} className="w-full">
+          <CarouselContent className="-ml-5">
+            {testimonials.map((t, i) => (
+              <CarouselItem key={i} className="pl-5 md:basis-1/2 lg:basis-1/3">
+                <TestimonialCard quote={t.quote} name={t.name} meta={t.meta} rating={t.rating} />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <div className="mt-8 flex justify-center gap-3">
+            <CarouselPrevious className="static translate-y-0" />
+            <CarouselNext className="static translate-y-0" />
+          </div>
+        </Carousel>
       </Section>
+
 
       {/* PRICING */}
       <Section

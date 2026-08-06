@@ -1,6 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { LayoutDashboard, Dumbbell, LineChart, Settings, LogOut } from "lucide-react";
+import logo from "@/assets/Copy of Stamina Rocket Brand Logo 2.svg";
 
 const nav = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },

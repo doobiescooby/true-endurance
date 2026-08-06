@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import logo from "@/assets/Copy of Stamina Rocket Brand Logo 2.svg";
 
 export function AuthLayout({
   title,

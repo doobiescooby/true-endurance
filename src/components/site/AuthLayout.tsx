@@ -1,6 +1,26 @@
 import { Link } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import logo from "@/assets/Copy of Stamina Rocket Brand Logo 2.svg";
+import { testimonials } from "@/data/testimonials";
+
+const LAST_TESTIMONIAL_KEY = "stamina-rocket-last-testimonial";
+
+function pickRandomTestimonial() {
+  try {
+    const lastIndexRaw = sessionStorage.getItem(LAST_TESTIMONIAL_KEY);
+    const lastIndex = lastIndexRaw ? Number.parseInt(lastIndexRaw, 10) : -1;
+    const indices = testimonials.map((_, i) => i);
+    const available =
+      testimonials.length > 1 && lastIndex >= 0 && lastIndex < testimonials.length
+        ? indices.filter((i) => i !== lastIndex)
+        : indices;
+    const nextIndex = available[Math.floor(Math.random() * available.length)];
+    sessionStorage.setItem(LAST_TESTIMONIAL_KEY, String(nextIndex));
+    return testimonials[nextIndex];
+  } catch {
+    return testimonials[Math.floor(Math.random() * testimonials.length)];
+  }
+}
 
 export function AuthLayout({
   title,
@@ -13,6 +33,13 @@ export function AuthLayout({
   children: ReactNode;
   footer: ReactNode;
 }) {
+  const [testimonial, setTestimonial] = useState(testimonials[0]);
+  const [showTestimonial, setShowTestimonial] = useState(false);
+
+  useEffect(() => {
+    setTestimonial(pickRandomTestimonial());
+    setShowTestimonial(true);
+  }, []);
   return (
     <div className="grid min-h-screen md:grid-cols-2">
       <div className="hidden bg-primary text-primary-foreground md:flex md:flex-col md:justify-between md:p-12">
@@ -23,10 +50,12 @@ export function AuthLayout({
           <span className="font-serif text-lg">Stamina Rocket</span>
         </Link>
         <div className="max-w-md">
-          <p className="font-serif text-3xl leading-snug">
-            “I stopped dreading intimacy. It's the calmest thing I've ever added to my day.”
-          </p>
-          <p className="mt-4 text-sm text-primary-foreground/70">— Marcus, 34</p>
+          <div className={showTestimonial ? "animate-fade-in" : "opacity-0"}>
+            <p className="font-serif text-3xl leading-snug">
+              “{testimonial.quote}”
+            </p>
+            <p className="mt-4 text-sm text-primary-foreground/70">— {testimonial.name}</p>
+          </div>
         </div>
         <p className="text-xs text-primary-foreground/60">
           Private · Discreet · Evidence-based

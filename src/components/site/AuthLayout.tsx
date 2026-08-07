@@ -50,10 +50,12 @@ export function AuthLayout({
           <span className="font-serif text-lg">Stamina Rocket</span>
         </Link>
         <div className="max-w-md">
-          <p className="font-serif text-3xl leading-snug">
-            “I stopped dreading intimacy. It's the calmest thing I've ever added to my day.”
-          </p>
-          <p className="mt-4 text-sm text-primary-foreground/70">— Marcus, 34</p>
+          <div className={showTestimonial ? "animate-fade-in" : "opacity-0"}>
+            <p className="font-serif text-3xl leading-snug">
+              “{testimonial.quote}”
+            </p>
+            <p className="mt-4 text-sm text-primary-foreground/70">— {testimonial.name}</p>
+          </div>
         </div>
         <p className="text-xs text-primary-foreground/60">
           Private · Discreet · Evidence-based

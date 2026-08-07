@@ -24,21 +24,15 @@ export function TestimonialCard({
   quote,
   name,
   meta,
-  rating = 5,
 }: {
   quote: string;
   name: string;
   meta: string;
-  rating?: number;
 }) {
   return (
     <figure className="hover-lift flex h-full flex-col rounded-2xl border border-border bg-card p-7 shadow-soft">
-      <div className="mb-4 flex gap-0.5" aria-label={`Rated ${rating} out of 5`} role="img">
-        {[1, 2, 3, 4, 5].map((i) => (
-          <span key={i} aria-hidden className={i <= rating ? "text-gold" : "text-muted-foreground/30"}>
-            ★
-          </span>
-        ))}
+      <div className="mb-4 text-gold" aria-hidden>
+        ★★★★★
       </div>
       <blockquote className="flex-1 font-serif text-lg leading-relaxed text-foreground">
         “{quote}”
@@ -50,7 +44,6 @@ export function TestimonialCard({
     </figure>
   );
 }
-
 
 export function PricingCard({
   name,
@@ -71,7 +64,7 @@ export function PricingCard({
 }) {
   return (
     <div
-      className={`relative rounded-3xl p-8 ${
+      className={`relative flex h-full flex-col rounded-3xl p-8 ${
         featured
           ? "bg-primary text-primary-foreground shadow-elevated"
           : "border border-border bg-card shadow-soft"
@@ -92,7 +85,7 @@ export function PricingCard({
           {period}
         </span>
       </div>
-      <ul className={`mt-6 space-y-3 text-sm ${featured ? "text-primary-foreground/90" : "text-foreground/85"}`}>
+      <ul className={`mt-6 flex-1 space-y-3 text-sm ${featured ? "text-primary-foreground/90" : "text-foreground/85"}`}>
         {features.map((f) => (
           <li key={f} className="flex gap-2">
             <span className={`mt-1 grid h-4 w-4 place-items-center rounded-full ${
@@ -106,7 +99,7 @@ export function PricingCard({
           </li>
         ))}
       </ul>
-      <div className="mt-8">{cta}</div>
+      <div className="mt-8 mt-auto">{cta}</div>
     </div>
   );
 }

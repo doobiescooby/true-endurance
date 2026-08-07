@@ -194,7 +194,7 @@ function LandingPage() {
           <CarouselContent className="-ml-5">
             {testimonials.map((t, i) => (
               <CarouselItem key={i} className="pl-5 md:basis-1/2 lg:basis-1/3">
-                <TestimonialCard quote={t.quote} name={t.name} meta={t.meta} rating={t.rating} />
+                <TestimonialCard quote={t.quote} name={t.name} meta={t.meta} />
               </CarouselItem>
             ))}
           </CarouselContent>
@@ -211,43 +211,81 @@ function LandingPage() {
         id="pricing"
         eyebrow="Pricing"
         title="One quiet investment in yourself"
-        description="Cancel anytime. Every plan includes a 7-day free trial and a 30-day money-back guarantee."
+        description="Cancel anytime. Paid plans includes a 7-day free trial and a 30-day money-back guarantee."
         align="center"
       >
-        <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
-          <PricingCard
-            name="Monthly"
-            price="$19"
-            period="/ month"
-            description="Full access, month to month."
-            features={["Daily 10-minute sessions", "Full training library", "Progress tracking", "Cancel anytime"]}
-            cta={
-              <Link
-                to="/signup"
-                className="block w-full rounded-full border border-border bg-background py-3 text-center text-sm font-medium hover:bg-accent"
-              >
-                Start free trial
-              </Link>
-            }
-          />
-          <PricingCard
-            featured
-            name="Annual"
-            price="$129"
-            period="/ year"
-            description="Best value — 45% off."
-            features={["Everything in Monthly", "Advanced protocols", "Weekly private reflections"]}
-            cta={
-              <Link
-                to="/signup"
-                className="block w-full rounded-full bg-gold py-3 text-center text-sm font-medium text-gold-foreground hover:brightness-105"
-              >
-                Start free trial
-              </Link>
-            }
-          />
-        </div>
-      </Section>
+ <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-3">
+
+    {/* FREE */}
+    <PricingCard
+      name="Free"
+      price="$0"
+      period="/ forever"
+      description="Perfect for getting started."
+      features={[
+        "Daily breathing exercises",
+        "Basic training programme",
+        "Limited progress tracking",
+        "Community support"
+      ]}
+      cta={
+        <Link
+          to="/signup"
+          className="block w-full rounded-full border border-border bg-background py-3 text-center text-sm font-medium hover:bg-accent"
+        >
+          Get started
+        </Link>
+      }
+    />
+
+    {/* PRO */}
+    <PricingCard
+      featured
+      name="Pro"
+      price="$20"
+      period="/ month"
+      description="Everything you need to build lasting control."
+      features={[
+        "Everything in Free",
+        "Full training library",
+        "Advanced progress tracking",
+        "Reflection journal",
+        "Priority support"
+      ]}
+      cta={
+        <Link
+          to="/signup"
+          className="block w-full rounded-full bg-gold py-3 text-center text-sm font-medium text-gold-foreground hover:brightness-105"
+        >
+          Start free trial
+        </Link>
+      }
+    />
+
+    {/* ELITE */}
+    <PricingCard
+      name="Elite"
+      price="$35"
+      period="/ month"
+      description="The complete experience."
+      features={[
+        "Everything in Pro",
+        "Premium training protocols",
+        "Early access to new features",
+        "Exclusive educational content"
+      ]}
+      cta={
+        <Link
+          to="/signup"
+          className="block w-full rounded-full border border-border bg-background py-3 text-center text-sm font-medium hover:bg-accent"
+        >
+          Start free trial
+        </Link>
+      }
+    />
+
+  </div>
+</Section>
 
       {/* FAQ */}
       <Section id="faq" eyebrow="Questions" title="Frequently asked" className="bg-secondary/40">

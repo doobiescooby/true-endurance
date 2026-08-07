@@ -85,7 +85,7 @@ export function PricingCard({
           {period}
         </span>
       </div>
-      <ul className={`mt-6 flex-1 space-y-3 text-sm ${featured ? "text-primary-foreground/90" : "text-foreground/85"}`}>
+      <ul className={`mt-6 flex-1 space-y-3 text-sm mb-8 ${featured ? "text-primary-foreground/90" : "text-foreground/85"}`}>
         {features.map((f) => (
           <li key={f} className="flex gap-2">
             <span className={`mt-1 grid h-4 w-4 place-items-center rounded-full ${

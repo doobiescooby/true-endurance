@@ -1,6 +1,26 @@
 import { Link } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import logo from "@/assets/Copy of Stamina Rocket Brand Logo 2.svg";
+import { testimonials } from "@/data/testimonials";
+
+const LAST_TESTIMONIAL_KEY = "stamina-rocket-last-testimonial";
+
+function pickRandomTestimonial() {
+  try {
+    const lastIndexRaw = sessionStorage.getItem(LAST_TESTIMONIAL_KEY);
+    const lastIndex = lastIndexRaw ? Number.parseInt(lastIndexRaw, 10) : -1;
+    const indices = testimonials.map((_, i) => i);
+    const available =
+      testimonials.length > 1 && lastIndex >= 0 && lastIndex < testimonials.length
+        ? indices.filter((i) => i !== lastIndex)
+        : indices;
+    const nextIndex = available[Math.floor(Math.random() * available.length)];
+    sessionStorage.setItem(LAST_TESTIMONIAL_KEY, String(nextIndex));
+    return testimonials[nextIndex];
+  } catch {
+    return testimonials[Math.floor(Math.random() * testimonials.length)];
+  }
+}
 
 export function AuthLayout({
   title,

@@ -33,6 +33,13 @@ export function AuthLayout({
   children: ReactNode;
   footer: ReactNode;
 }) {
+  const [testimonial, setTestimonial] = useState(testimonials[0]);
+  const [showTestimonial, setShowTestimonial] = useState(false);
+
+  useEffect(() => {
+    setTestimonial(pickRandomTestimonial());
+    setShowTestimonial(true);
+  }, []);
   return (
     <div className="grid min-h-screen md:grid-cols-2">
       <div className="hidden bg-primary text-primary-foreground md:flex md:flex-col md:justify-between md:p-12">

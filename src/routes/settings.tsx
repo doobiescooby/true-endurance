@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { AppShell } from "@/components/site/AppShell";
 import { useState } from "react";
+import { loadOnboardingProfile, saveOnboardingProfile } from "@/data/onboarding";
 
 export const Route = createFileRoute("/settings")({
   component: SettingsPage,
@@ -31,7 +32,17 @@ function Toggle({ label, description, defaultOn }: { label: string; description:
 }
 
 function SettingsPage() {
+  const navigate = useNavigate();
+
+  function reviewAnswers() {
+    const profile = loadOnboardingProfile();
+    // Re-open the questionnaire without losing previous answers.
+    saveOnboardingProfile({ ...profile, completed: false, completedAt: null });
+    navigate({ to: "/onboarding" });
+  }
+
   return (
+
     <AppShell>
       <div className="fade-in-up">
         <p className="text-sm text-muted-foreground">Preferences</p>

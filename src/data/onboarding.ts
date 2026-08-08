@@ -66,11 +66,6 @@ export const onboardingQuestions: OnboardingQuestion[] = [
     options: ["Under 20", "20–29", "30–39", "40–49", "50+"],
   },
   {
-    id: "dailyCommitment",
-    title: "How much time can you realistically commit each day?",
-    options: ["5 minutes", "10 minutes", "15 minutes"],
-  },
-  {
     id: "typicalDuration",
     title: "How long do you usually last before reaching ejaculation?",
     options: [
@@ -80,6 +75,11 @@ export const onboardingQuestions: OnboardingQuestion[] = [
       "More than 3 minutes",
       "I'd rather not say",
     ],
+  },
+  {
+    id: "dailyCommitment",
+    title: "How much time can you realistically commit each day?",
+    options: ["5 minutes", "10 minutes", "15 minutes"],
   },
 ];
 

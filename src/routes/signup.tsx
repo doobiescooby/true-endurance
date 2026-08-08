@@ -34,7 +34,7 @@ function SignupPage() {
         onSubmit={(e) => {
           e.preventDefault();
           setLoading(true);
-          setTimeout(() => navigate({ to: "/dashboard" }), 400);
+          setTimeout(() => navigate({ to: "/onboarding" }), 400);
         }}
       >
         <Field label="First name" placeholder="Alex" autoComplete="given-name" />

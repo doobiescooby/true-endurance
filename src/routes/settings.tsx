@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { AppShell } from "@/components/site/AppShell";
 import { useState } from "react";
+import { loadOnboardingProfile, saveOnboardingProfile } from "@/data/onboarding";
 
 export const Route = createFileRoute("/settings")({
   component: SettingsPage,
@@ -31,7 +32,17 @@ function Toggle({ label, description, defaultOn }: { label: string; description:
 }
 
 function SettingsPage() {
+  const navigate = useNavigate();
+
+  function reviewAnswers() {
+    const profile = loadOnboardingProfile();
+    // Re-open the questionnaire without losing previous answers.
+    saveOnboardingProfile({ ...profile, completed: false, completedAt: null });
+    navigate({ to: "/onboarding" });
+  }
+
   return (
+
     <AppShell>
       <div className="fade-in-up">
         <p className="text-sm text-muted-foreground">Preferences</p>
@@ -64,6 +75,21 @@ function SettingsPage() {
             <Toggle label="Haptic pacing" description="Gentle vibrations for breath timing." />
           </div>
         </section>
+
+        <section className="rounded-2xl border border-border bg-card p-6 shadow-soft md:col-span-2 md:p-8">
+          <h2 className="font-serif text-xl">Your programme</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Update the answers you gave during onboarding to re-personalise your training.
+          </p>
+          <button
+            onClick={reviewAnswers}
+            className="mt-4 rounded-full border border-border px-5 py-2.5 text-sm font-medium hover:bg-muted"
+          >
+            Review my answers
+          </button>
+        </section>
+
+
 
         <section className="rounded-2xl border border-border bg-card p-6 shadow-soft md:col-span-2 md:p-8">
           <h2 className="font-serif text-xl">Privacy</h2>

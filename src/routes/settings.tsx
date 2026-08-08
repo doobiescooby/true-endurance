@@ -77,6 +77,21 @@ function SettingsPage() {
         </section>
 
         <section className="rounded-2xl border border-border bg-card p-6 shadow-soft md:col-span-2 md:p-8">
+          <h2 className="font-serif text-xl">Your programme</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Update the answers you gave during onboarding to re-personalise your training.
+          </p>
+          <button
+            onClick={reviewAnswers}
+            className="mt-4 rounded-full border border-border px-5 py-2.5 text-sm font-medium hover:bg-muted"
+          >
+            Review my answers
+          </button>
+        </section>
+
+
+
+        <section className="rounded-2xl border border-border bg-card p-6 shadow-soft md:col-span-2 md:p-8">
           <h2 className="font-serif text-xl">Privacy</h2>
           <div className="mt-3">
             <Toggle label="Neutral notifications" description="Reminders never mention Stamina Rocket by name." defaultOn />

@@ -3,9 +3,11 @@ import { NotebookPen } from "lucide-react";
 export function ReflectionCard({
   logged,
   onAdd,
+  note,
 }: {
   logged: boolean;
   onAdd: () => void;
+  note?: string | null;
 }) {
   return (
     <div className="rounded-2xl border border-border bg-card p-6 shadow-soft">
@@ -24,6 +26,7 @@ export function ReflectionCard({
       >
         {logged ? "Edit reflection" : "Add reflection"}
       </button>
+      {note && <p className="fade-in mt-3 text-xs text-muted-foreground">{note}</p>}
     </div>
   );
 }

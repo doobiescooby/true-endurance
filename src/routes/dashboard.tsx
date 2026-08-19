@@ -17,7 +17,6 @@ import {
   toISODate,
   type DashboardData,
 } from "@/data/sessions";
-import { toast } from "sonner";
 
 export const Route = createFileRoute("/dashboard")({
   component: Dashboard,
@@ -44,6 +43,7 @@ function Dashboard() {
   const [data, setData] = useState<DashboardData | null>(null);
   const [hour, setHour] = useState(19);
   const [selected, setSelected] = useState<string | null>(null);
+  const [reflectionNote, setReflectionNote] = useState(false);
 
   useEffect(() => {
     setData(loadDashboardData());
@@ -102,7 +102,8 @@ function Dashboard() {
 
         <ReflectionCard
           logged={!!data?.reflectionLoggedToday}
-          onAdd={() => toast("Reflections open at the end of today's session.")}
+          onAdd={() => setReflectionNote(true)}
+          note={reflectionNote ? "Reflections are recorded at the end of today's session." : null}
         />
 
         <ProgrammeProgress stages={data?.stages ?? []} />

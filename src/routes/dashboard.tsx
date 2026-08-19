@@ -1,102 +1,111 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useMemo, useState } from "react";
 import { AppShell } from "@/components/site/AppShell";
-import { Flame, Clock, TrendingUp, Play } from "lucide-react";
+import { DashboardHeader } from "@/components/dashboard/DashboardHeader";
+import { WeeklyTrainingCalendar } from "@/components/dashboard/WeeklyTrainingCalendar";
+import { DayWorkoutDetails } from "@/components/dashboard/DayWorkoutDetails";
+import { StreakCard } from "@/components/dashboard/StreakCard";
+import { TodaysSession } from "@/components/dashboard/TodaysSession";
+import { QuickStats } from "@/components/dashboard/QuickStats";
+import { WeeklyProgress } from "@/components/dashboard/WeeklyProgress";
+import { ReflectionCard } from "@/components/dashboard/ReflectionCard";
+import { ProgrammeProgress } from "@/components/dashboard/ProgrammeProgress";
+import {
+  findSession,
+  getWeekDays,
+  loadDashboardData,
+  toISODate,
+  type DashboardData,
+} from "@/data/sessions";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/dashboard")({
   component: Dashboard,
-  head: () => ({ meta: [{ title: "Dashboard · Stamina Rocket" }] }),
+  head: () => ({
+    meta: [
+      { title: "Dashboard · Stamina Rocket" },
+      {
+        name: "description",
+        content: "Your weekly training calendar, streak and today's Stamina Rocket session.",
+      },
+      { property: "og:title", content: "Dashboard · Stamina Rocket" },
+      {
+        property: "og:description",
+        content: "Track your streak, weekly progress and today's session.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
 });
 
 function Dashboard() {
+  // client-only read of stored data — keeps SSR output stable
+  const [data, setData] = useState<DashboardData | null>(null);
+  const [hour, setHour] = useState(19);
+  const [selected, setSelected] = useState<string | null>(null);
+
+  useEffect(() => {
+    setData(loadDashboardData());
+    setHour(new Date().getHours());
+  }, []);
+
+  const week = useMemo(() => getWeekDays(), []);
+  const todayISO = useMemo(() => toISODate(new Date()), []);
+
+  const sessions = data?.sessions ?? [];
+  const weekCompleted = week.filter((d) =>
+    sessions.some((s) => s.date === toISODate(d) && s.completed),
+  ).length;
+
+  const selectedDate = selected ? week.find((d) => toISODate(d) === selected) : undefined;
+
   return (
     <AppShell>
-      <div className="fade-in-up">
-        <p className="text-sm text-muted-foreground">Good evening</p>
-        <h1 className="mt-1 text-3xl md:text-4xl">Ready for tonight's session?</h1>
+      <DashboardHeader firstName={data?.firstName} hour={hour} />
+
+      <div className="fade-in-up mt-6 space-y-4">
+        <WeeklyTrainingCalendar
+          week={week}
+          sessions={sessions}
+          todayISO={todayISO}
+          selected={selected}
+          onSelect={(iso) => setSelected((prev) => (prev === iso ? null : iso))}
+        />
+
+        {selectedDate && (
+          <DayWorkoutDetails date={selectedDate} session={findSession(sessions, selected!)} />
+        )}
+
+        <StreakCard days={data?.streakDays ?? 0} />
       </div>
 
-      {/* Today card */}
-      <div className="fade-in-up mt-8 grid gap-4 md:grid-cols-3">
-        <div className="rounded-2xl border border-border bg-card p-6 shadow-soft">
-          <div className="flex items-center gap-3 text-sm text-muted-foreground">
-            <Flame className="h-4 w-4 text-gold" /> Streak
-          </div>
-          <div className="mt-3 font-serif text-4xl">14 <span className="text-lg text-muted-foreground">days</span></div>
-        </div>
-        <div className="rounded-2xl border border-border bg-card p-6 shadow-soft">
-          <div className="flex items-center gap-3 text-sm text-muted-foreground">
-            <Clock className="h-4 w-4 text-gold" /> This week
-          </div>
-          <div className="mt-3 font-serif text-4xl">42 <span className="text-lg text-muted-foreground">min</span></div>
-        </div>
-        <div className="rounded-2xl border border-border bg-card p-6 shadow-soft">
-          <div className="flex items-center gap-3 text-sm text-muted-foreground">
-            <TrendingUp className="h-4 w-4 text-gold" /> Control index
-          </div>
-          <div className="mt-3 font-serif text-4xl">+38%</div>
-        </div>
+      <div className="mt-6">
+        <TodaysSession
+          programmeDay={data?.programmeDay ?? 1}
+          focus={data?.today.focus ?? "Focus"}
+          title={data?.today.title ?? "Breath & awareness"}
+          description={data?.today.description ?? ""}
+          durationMinutes={data?.today.durationMinutes ?? 8}
+          exercises={data?.today.exercises ?? []}
+        />
       </div>
 
-      {/* Session hero */}
-      <div className="mt-6 overflow-hidden rounded-3xl bg-primary text-primary-foreground shadow-elevated">
-        <div className="grid gap-8 p-8 md:grid-cols-[1.4fr_1fr] md:p-12">
-          <div>
-            <p className="text-xs uppercase tracking-[0.18em] text-gold">Day 15 · Focus</p>
-            <h2 className="mt-3 text-3xl md:text-4xl">Breath &amp; awareness</h2>
-            <p className="mt-3 max-w-md text-primary-foreground/80">
-              Tonight's practice builds on your growing awareness with a calming coherence
-              breath and a short pelvic-floor sequence.
-            </p>
-            <Link
-              to="/training"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-medium text-gold-foreground hover:brightness-105"
-            >
-              <Play className="h-4 w-4" fill="currentColor" />
-              Begin 8-minute session
-            </Link>
-          </div>
-          <div className="hidden rounded-2xl bg-primary-foreground/8 p-6 md:block">
-            <p className="text-xs uppercase tracking-wider text-primary-foreground/70">Session plan</p>
-            <ul className="mt-4 space-y-3 text-sm">
-              {[
-                ["01", "Grounding breath", "2 min"],
-                ["02", "Coherence breath", "3 min"],
-                ["03", "Pelvic-floor set", "2 min"],
-                ["04", "Reflection", "1 min"],
-              ].map(([n, t, d]) => (
-                <li key={n} className="flex items-center justify-between border-b border-primary-foreground/10 pb-3 last:border-0">
-                  <span className="flex items-center gap-3">
-                    <span className="text-xs text-gold">{n}</span>
-                    {t}
-                  </span>
-                  <span className="text-xs text-primary-foreground/70">{d}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
+      <div className="mt-6 space-y-4">
+        <QuickStats
+          totalSessions={data?.totalSessions ?? 0}
+          streakDays={data?.streakDays ?? 0}
+          controlIndex={data?.controlIndex ?? 0}
+        />
 
-      {/* Recent */}
-      <h3 className="mt-12 text-lg font-semibold">This week</h3>
-      <div className="mt-4 grid gap-3">
-        {[
-          ["Mon", "Coherence breath", "8 min"],
-          ["Tue", "Pelvic-floor progression", "9 min"],
-          ["Wed", "Awareness practice", "8 min"],
-          ["Thu", "Stamina interval", "10 min"],
-        ].map(([d, t, m]) => (
-          <div key={d} className="flex items-center justify-between rounded-2xl border border-border bg-card p-5 shadow-soft">
-            <div className="flex items-center gap-4">
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/8 font-serif text-sm text-primary">{d}</div>
-              <div>
-                <div className="text-sm font-medium">{t}</div>
-                <div className="text-xs text-muted-foreground">Completed</div>
-              </div>
-            </div>
-            <div className="text-sm text-muted-foreground">{m}</div>
-          </div>
-        ))}
+        <WeeklyProgress completed={weekCompleted} target={data?.weeklyTarget ?? 7} />
+
+        <ReflectionCard
+          logged={!!data?.reflectionLoggedToday}
+          onAdd={() => toast("Reflections open at the end of today's session.")}
+        />
+
+        <ProgrammeProgress stages={data?.stages ?? []} />
       </div>
     </AppShell>
   );
